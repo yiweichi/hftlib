@@ -40,8 +40,8 @@ class MPSCQueue {
         std::atomic<std::size_t> sequence;
         alignas(T) unsigned char storage[sizeof(T)];
 
-        T* ptr() noexcept { return reinterpret_cast<T*>(storage); }
-        const T* ptr() const noexcept { return reinterpret_cast<const T*>(storage); }
+        T* ptr() noexcept { return std::launder(reinterpret_cast<T*>(storage)); }
+        const T* ptr() const noexcept { return std::launder(reinterpret_cast<const T*>(storage)); }
     };
 
     alignas(kMPSCQueueCacheLineSize) std::atomic<std::size_t> head_{0};

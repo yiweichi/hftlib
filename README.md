@@ -8,6 +8,7 @@ A small C++17 practice project for implementing low-latency and systems-style bu
 - `smart_ptr.hpp`: educational implementations of `UniquePtr`, `SharedPtr`, and `WeakPtr`.
 - `SPSCRingBuffer`: a single-producer single-consumer ring buffer with atomic indices and cache-line-aware layout.
 - `MPSCQueue`: a bounded multi-producer single-consumer queue built with CAS and per-slot sequence numbers.
+- `ZeroCopyDispatcher`: a preallocated message fan-out path using pooled storage, an MPSC ingress queue, and per-subscriber SPSC handle queues.
 
 ## Build
 
@@ -31,6 +32,7 @@ This repository is meant for learning modern C++ fundamentals through implementa
 - templates, traits, and operator overloading
 - atomic operations and basic lock-free design
 - bounded lock-free queue design for SPSC and MPSC traffic patterns
+- zero-copy fan-out patterns with pooled storage and handle passing
 - ownership models with unique, shared, and weak references
 
 ## Layout

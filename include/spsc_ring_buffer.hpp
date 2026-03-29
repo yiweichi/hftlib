@@ -40,8 +40,8 @@ class SPSCRingBuffer {
     struct alignas(T) Slot {
         alignas(T) unsigned char storage[sizeof(T)];
 
-        T* ptr() noexcept { return reinterpret_cast<T*>(storage); }
-        const T* ptr() const noexcept { return reinterpret_cast<const T*>(storage); }
+        T* ptr() noexcept { return std::launder(reinterpret_cast<T*>(storage)); }
+        const T* ptr() const noexcept { return std::launder(reinterpret_cast<const T*>(storage)); }
     };
 
     // Separate head and tail into different cache lines
