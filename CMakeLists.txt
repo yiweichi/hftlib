@@ -13,10 +13,13 @@ include_directories(include)
 add_executable(test_simple_vector tests/test_simple_vector.cpp)
 add_executable(test_smart_ptr     tests/test_smart_ptr.cpp)
 add_executable(test_spsc_ring_buffer tests/test_spsc_ring_buffer.cpp)
+add_executable(test_mpsc_queue tests/test_mpsc_queue.cpp)
 
 target_link_libraries(test_spsc_ring_buffer PRIVATE pthread)
+target_link_libraries(test_mpsc_queue PRIVATE pthread)
 
 enable_testing()
 add_test(NAME SimpleVector   COMMAND test_simple_vector)
 add_test(NAME SmartPtr        COMMAND test_smart_ptr)
 add_test(NAME SPSCRingBuffer  COMMAND test_spsc_ring_buffer)
+add_test(NAME MPSCQueue       COMMAND test_mpsc_queue)
