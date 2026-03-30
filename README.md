@@ -32,8 +32,17 @@ cmake --build build --target bench_allocators
 python3 benchmarks/run_allocator_benchmarks.py
 ```
 
-The runner always benchmarks the system allocator and will also benchmark `jemalloc`
-and `tcmalloc` if their Homebrew libraries are present.
+The runner always benchmarks the system allocator and will also benchmark
+`jemalloc`, `tcmalloc`, and `mimalloc` if their libraries are present.
+
+On Ubuntu, install allocator packages with:
+
+```bash
+sudo apt install libjemalloc-dev libgoogle-perftools-dev libmimalloc-dev
+```
+
+The runner performs warmup + repeated measured runs, prints a summary table,
+and writes machine-readable output to `build/allocator_benchmark_results.json`.
 
 ## Project Goal
 

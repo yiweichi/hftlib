@@ -129,6 +129,18 @@ void run_workload(const Workload& workload) {
               << std::setw(10) << (ops_per_sec / 1e6) << " M alloc+free/s  "
               << std::setw(8) << ns_per_op << " ns/op  "
               << "checksum=" << checksum << '\n';
+
+    std::cout << "RESULT"
+              << " workload=" << workload.name
+              << " threads=" << workload.threads
+              << " live_set=" << workload.live_set
+              << " min_size=" << workload.min_size
+              << " max_size=" << workload.max_size
+              << " total_ops=" << total_ops
+              << " ops_per_sec=" << std::setprecision(6) << ops_per_sec
+              << " ns_per_op=" << ns_per_op
+              << " checksum=" << checksum
+              << '\n';
 }
 
 } // namespace
