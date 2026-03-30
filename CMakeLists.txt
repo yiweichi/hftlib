@@ -15,6 +15,7 @@ add_executable(test_smart_ptr     tests/test_smart_ptr.cpp)
 add_executable(test_spsc_ring_buffer tests/test_spsc_ring_buffer.cpp)
 add_executable(test_mpsc_queue tests/test_mpsc_queue.cpp)
 add_executable(test_zero_copy_dispatcher tests/test_zero_copy_dispatcher.cpp)
+add_executable(bench_allocators benchmarks/bench_allocators.cpp)
 
 target_link_libraries(test_spsc_ring_buffer PRIVATE pthread)
 target_link_libraries(test_mpsc_queue PRIVATE pthread)

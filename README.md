@@ -24,6 +24,17 @@ cd build
 ctest --output-on-failure
 ```
 
+## Run Allocator Benchmark
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --target bench_allocators
+python3 benchmarks/run_allocator_benchmarks.py
+```
+
+The runner always benchmarks the system allocator and will also benchmark `jemalloc`
+and `tcmalloc` if their Homebrew libraries are present.
+
 ## Project Goal
 
 This repository is meant for learning modern C++ fundamentals through implementation:
